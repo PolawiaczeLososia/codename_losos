@@ -6,7 +6,8 @@ var ProductSchema = new Schema ({
     _producentId: String,
     _warehouseSectorId: String,
     _subCategoryId: String,
-    _productCarModelId: String,
+    productCarModelsId: [{_productCarModelId: String
+    }],
     quantity: Number,
     isActive: Boolean,
     prices: [{

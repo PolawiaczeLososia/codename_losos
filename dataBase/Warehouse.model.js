@@ -3,10 +3,10 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var WarehouseSchema = new Schema({
-    _warehouseId: String,
+    _id: String,
     name: String,
     isActive: Boolean,
 
 })
 
-module.exports = mongoose.model('Warehouse', WarechouseSchema);
+module.exports = mongoose.model('Warehouse', WarehouseSchema);
