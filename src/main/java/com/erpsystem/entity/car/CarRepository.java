@@ -1,4 +1,7 @@
 package com.erpsystem.entity.car;
 
-public class CarRepository {
+import org.springframework.data.mongodb.repository.MongoRepository;
+
+public interface CarRepository extends MongoRepository<Car, String> {
+    Car findByName(String name);
 }

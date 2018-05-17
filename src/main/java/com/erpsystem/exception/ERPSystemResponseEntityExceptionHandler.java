@@ -12,7 +12,7 @@ import java.util.Date;
 
 @ControllerAdvice
 @RestController
-public class DingoResponseEntityExceptionHandler extends ResponseEntityExceptionHandler {
+public class ERPSystemResponseEntityExceptionHandler extends ResponseEntityExceptionHandler {
 
     @ExceptionHandler(Exception.class)
     public final ResponseEntity<Object> handleAllExceptions(Exception ex, WebRequest request){
@@ -23,8 +23,8 @@ public class DingoResponseEntityExceptionHandler extends ResponseEntityException
         return new ResponseEntity<>(exceptionResponse, HttpStatus.INTERNAL_SERVER_ERROR);
     }
 
-    @ExceptionHandler(ItemNotFoundException.class)
-    public final ResponseEntity<Object> handleItemNotFound(ItemNotFoundException ex, WebRequest request){
+    @ExceptionHandler(ObjectNotFoundException.class)
+    public final ResponseEntity<Object> handleItemNotFound(ObjectNotFoundException ex, WebRequest request){
 
         var exceptionResponse = new ExceptionResponse(new Date(), ex.getMessage(),
                 request.getDescription(false));
