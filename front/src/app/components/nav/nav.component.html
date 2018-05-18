@@ -1,13 +1,13 @@
 <div class="example-container" [class.example-is-mobile]="mobileQuery.matches">
     <mat-toolbar color="primary" class="example-toolbar">
       <button mat-icon-button (click)="snav.toggle()"><mat-icon>menu</mat-icon></button>
-      <h1 class="example-app-name">Codename Salmon</h1>
+      <a routerLink="/" class="example-app-name text-white">Codename Salmon</a>
       <span class="fill-remaining-space"></span>
-      <button mat-button>Magazyn</button>
-      <button mat-button>Dokumenty</button>
-      <button mat-button>Ustawienia</button>
-      <button mat-button>Informacje</button>
-      <button mat-button>Autorzy</button>
+      <button mat-button routerLink="/warehouse" class="d-none d-md-block px-4">Magazyn</button>
+      <button mat-button class="d-none d-md-block px-4">Dokumenty</button>
+      <button mat-button class="d-none d-md-block px-4">Ustawienia</button>
+      <button mat-button class="d-none d-md-block px-4">Informacje</button>
+      <button mat-button class="d-none d-md-block px-4">Autorzy</button>
     </mat-toolbar>
   
     <mat-sidenav-container class="example-sidenav-container"
@@ -15,7 +15,11 @@
       <mat-sidenav color="primary" #snav [mode]="mobileQuery.matches ? 'over' : 'side'"
                    [fixedInViewport]="mobileQuery.matches" fixedTopGap="56">
         <mat-nav-list>
-          <a mat-list-item routerLink=".">Jedenastka</a>
+          <a mat-list-item routerLink="/warehouse">Magazyn</a>
+          <a mat-list-item routerLink=".">Dokumenty</a>
+          <a mat-list-item routerLink=".">Ustawienia</a>
+          <a mat-list-item routerLink=".">Informacje</a>
+          <a mat-list-item routerLink=".">Autorzy</a>
         </mat-nav-list>
       </mat-sidenav>
   

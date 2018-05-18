@@ -13,6 +13,8 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatListModule} from '@angular/material/list';
 import { MediaMatcher } from '@angular/cdk/layout';
+import {MatSelectModule} from '@angular/material/select';
+import {MatInputModule} from '@angular/material/input';
 @NgModule({
   imports: [
     CommonModule,
@@ -26,7 +28,9 @@ import { MediaMatcher } from '@angular/cdk/layout';
     MatTabsModule,
     MatToolbarModule,
     MatDividerModule,
-    MatListModule
+    MatListModule,
+    MatSelectModule,
+    MatInputModule
   ],
   exports: [
     MatSidenavModule,
@@ -39,7 +43,9 @@ import { MediaMatcher } from '@angular/cdk/layout';
     MatTabsModule,
     MatToolbarModule,
     MatDividerModule,
-    MatListModule
+    MatListModule,
+    MatSelectModule,
+    MatInputModule
   ],
   declarations: [],
   providers: [MediaMatcher]

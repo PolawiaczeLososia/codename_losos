@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {FormControl, FormGroupDirective, NgForm, Validators, FormGroup, FormBuilder } from '@angular/forms';
-import {ErrorStateMatcher} from '@angular/material/core';
+import { FormControl, FormGroupDirective, NgForm, Validators, FormGroup, FormBuilder } from '@angular/forms';
+import { ErrorStateMatcher } from '@angular/material/core';
 @Component({
   selector: 'app-add-product',
   templateUrl: './add-product.component.html',
@@ -10,6 +10,6 @@ import {ErrorStateMatcher} from '@angular/material/core';
 export class AddProductComponent implements OnInit {
 
   ngOnInit() {
-    
+
   }
 }

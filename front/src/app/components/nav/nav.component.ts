@@ -26,7 +26,7 @@ export class NavComponent implements OnDestroy, AfterViewInit {
     }
   }
   constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher) {
-    this.mobileQuery = media.matchMedia('(max-width: 600px)');
+    this.mobileQuery = media.matchMedia('(max-width: 768px)');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addListener(this._mobileQueryListener);
   }
@@ -43,8 +43,5 @@ export class NavComponent implements OnDestroy, AfterViewInit {
       }
     }, 0);
   }
-
-  // shouldRun = [/(^|\.)plnkr\.co$/, /(^|\.)stackblitz\.io$/].some(h => h.test(window.location.host));
 }
 
-}

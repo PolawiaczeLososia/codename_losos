@@ -1,3 +1,57 @@
-<p>
-  warehouse-view works!
-</p>
+<mat-toolbar-row class="">
+
+<span class="fill-remaining-space d-none d-md-block"></span>
+  <!-- Add button-->
+  <button mat-button [matMenuTriggerFor]="addMenu" class="d-none d-md-block px-5">Dodaj</button>
+  <mat-menu #addMenu="matMenu">
+    <button mat-menu-item routerLink="/warehouse/add-warehouse">Magazyn</button>
+    <button mat-menu-item routerLink="/warehouse/add-product">Produkt</button>
+    <button mat-menu-item routerLink="/warehouse/add-category">Kategorię</button>
+  </mat-menu>
+
+  <button mat-menu-item [matMenuTriggerFor]="addMenu" class="d-block d-md-none text-center">
+    <mat-icon>add</mat-icon>
+  </button>
+   <!-- Add button-->
+
+    <!-- Edit button-->
+  <button mat-button [matMenuTriggerFor]="editMenu" class="d-none d-md-block px-5">Edytuj</button>
+  <mat-menu #editMenu="matMenu">
+    <button mat-menu-item>Magazyn</button>
+    <button mat-menu-item>Produkt</button>
+    <button mat-menu-item>Kategorię</button>
+  </mat-menu>
+
+  <button mat-menu-item [matMenuTriggerFor]="editMenu" class="d-block d-md-none text-center">
+    <mat-icon>edit</mat-icon>
+  </button>
+   <!-- Edit button-->
+
+    <!-- Remove button-->
+  <button mat-button [matMenuTriggerFor]="removeMenu" class="d-none d-md-block px-5">Usuń</button>
+  <mat-menu #removeMenu="matMenu">
+    <button mat-menu-item>Magazyn</button>
+    <button mat-menu-item>Produkt</button>
+    <button mat-menu-item>Kategorię</button>
+  </mat-menu>
+
+  <button mat-menu-item [matMenuTriggerFor]="removeMenu" class="d-block d-md-none text-center">
+    <mat-icon>remove</mat-icon>
+  </button>
+   <!-- Remove button-->
+
+    <!-- Show button-->
+  <button mat-button [matMenuTriggerFor]="showMenu" class="d-none d-md-block px-5">Wyświetl</button>
+  <mat-menu #showMenu="matMenu">
+    <button mat-menu-item>Magazyny</button>
+    <button mat-menu-item>Produkty</button>
+    <button mat-menu-item>Kategorie</button>
+  </mat-menu>
+
+  <button mat-menu-item [matMenuTriggerFor]="showMenu" class="d-block d-md-none text-center">
+    <mat-icon>list_alt</mat-icon>
+  </button>
+   <!-- Show button-->
+</mat-toolbar-row>
+
+<router-outlet></router-outlet>
