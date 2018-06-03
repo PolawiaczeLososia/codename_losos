@@ -1,20 +1,23 @@
-package com.erpsystem.entity.car;
+package com.erpsystem.entity.warehouse;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.hateoas.ResourceSupport;
 
-@Document(collection = "car")
-public class Car {
+@Document(collection = "warehouse")
+public class Warehouse {
 
   @Id
   private String id;
   private String name;
+  private Boolean isActive;
 
-  public Car() {
+  public Warehouse() {
   }
 
-  public Car(String name) {
+  public Warehouse(String name, Boolean isActive) {
     this.name = name;
+    this.isActive = isActive;
   }
 
   public String getId() {
@@ -33,11 +36,20 @@ public class Car {
     this.name = name;
   }
 
+  public Boolean getActive() {
+    return isActive;
+  }
+
+  public void setActive(Boolean active) {
+    isActive = active;
+  }
+
   @Override
   public String toString() {
-    return "Car{" +
+    return "Warehouse{" +
         "id='" + id + '\'' +
         ", name='" + name + '\'' +
+        ", isActive=" + isActive +
         '}';
   }
 }

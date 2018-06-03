@@ -5,7 +5,7 @@ var Schema = mongoose.Schema;
 var WarehouseSchema = new Schema({
     _id: String,
     name: String,
-    isActive: Boolean,
+    isActive: Boolean
 
 })
 

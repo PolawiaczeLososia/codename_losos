@@ -1,4 +1,4 @@
-package com.erpsystem.entity.car;
+package com.erpsystem.entity.warehousesector;
 
 import static org.springframework.hateoas.mvc.ControllerLinkBuilder.methodOn;
 
@@ -24,57 +24,57 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 @RestController
-public class CarController {
+public class WarehouseSectorController {
 
-  private static final String REL = "all cars";
+  private static final String REL = "all warehouse sectors";
+  private LinkBuilder parentLinkBuilder;
+  private Link parentLink;
 
   @Autowired
-  private CarService service;
-  private Link parentLink;
-  private LinkBuilder parentLinkBuilder;
-
+  private WarehouseSectorService service;
+  
   @PostConstruct
   private void init() {
     parentLinkBuilder = ControllerLinkBuilder.linkTo(methodOn(this.getClass()).findAll());
     parentLink = parentLinkBuilder.withRel(REL);
   }
 
-  @PostMapping(path = "/cars")
-  public ResponseEntity<Object> create(@RequestBody Car car) {
+  @PostMapping(path = "/warehouseSectors")
+  public ResponseEntity<Object> create(@RequestBody WarehouseSector warehouseSector) {
 
-    Car savedCar = service.save(car);
+    WarehouseSector savedWarehouseSector = service.save(warehouseSector);
     URI location = ServletUriComponentsBuilder.fromCurrentRequest()
         .path("/{id}")
-        .buildAndExpand(savedCar.getId()).toUri();
+        .buildAndExpand(savedWarehouseSector.getId()).toUri();
 
     return ResponseEntity.created(location).build();
   }
 
-  @GetMapping(path = "/cars")
-  public Resources<Resource<Car>> findAll() {
-    List<Car> cars = service.findAll();
-    List<Resource<Car>> resourceList = new LinkedList<>();
-    for (Car car : cars) {
-      Resource<Car> resource = new Resource<>(car);
-      resource.add(parentLinkBuilder.slash(car.getId()).withSelfRel());
+  @GetMapping(path = "/warehouseSectors")
+  public Resources<Resource<WarehouseSector>> findAll() {
+    List<WarehouseSector> warehouseSectors = service.findAll();
+    List<Resource<WarehouseSector>> resourceList = new LinkedList<>();
+    for (WarehouseSector warehouseSector : warehouseSectors) {
+      Resource<WarehouseSector> resource = new Resource<>(warehouseSector);
+      resource.add(parentLinkBuilder.slash(warehouseSector.getId()).withSelfRel());
       resourceList.add(resource);
     }
     return new Resources<>(resourceList);
   }
 
-  @GetMapping(path = "/cars/{id}")
-  public Resource<Car> findById(@PathVariable String id) {
+  @GetMapping(path = "/warehouseSectors/{id}")
+  public Resource<WarehouseSector> findById(@PathVariable String id) {
     return new ResourceBuilder<>(service.findById(id), id).link(parentLink).build();
   }
 
-  @PutMapping(path = "/cars/{id}")
-  public Resource<Car> updateById(@PathVariable String id, @RequestBody Car car) {
-    car.setId(id);
-    return new ResourceBuilder<>(service.overwrite(car), id).link(parentLink).build();
+  @PutMapping(path = "/warehouseSectors/{id}")
+  public Resource<WarehouseSector> updateById(@PathVariable String id, @RequestBody WarehouseSector warehouseSector) {
+    warehouseSector.setId(id);
+    return new ResourceBuilder<>(service.overwrite(warehouseSector), id).link(parentLink).build();
   }
 
-  @DeleteMapping(path = "/cars/{id}")
-  public Resource<Car> deleteById(@PathVariable String id) {
+  @DeleteMapping(path = "/warehouseSectors/{id}")
+  public Resource<WarehouseSector> deleteById(@PathVariable String id) {
     return new ResourceBuilder<>(service.deleteById(id), id).link(parentLink).build();
   }
 }

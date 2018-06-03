@@ -1,19 +1,19 @@
-package com.erpsystem.entity.car;
+package com.erpsystem.entity.warehousesector;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document(collection = "car")
-public class Car {
+@Document(collection = "WarehouseSector")
+public class WarehouseSector {
 
   @Id
   private String id;
   private String name;
 
-  public Car() {
+  public WarehouseSector() {
   }
 
-  public Car(String name) {
+  public WarehouseSector(String name) {
     this.name = name;
   }
 
@@ -35,7 +35,7 @@ public class Car {
 
   @Override
   public String toString() {
-    return "Car{" +
+    return "WarehouseSector{" +
         "id='" + id + '\'' +
         ", name='" + name + '\'' +
         '}';

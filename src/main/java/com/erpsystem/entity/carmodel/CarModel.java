@@ -14,6 +14,9 @@ public class CarModel {
 
     private Car car;
 
+    public CarModel() {
+    }
+
     public CarModel(String name, String productionYear, Car car) {
         this.name = name;
         this.productionYear = productionYear;
